@@ -13,14 +13,21 @@ public class ReadInput : MonoBehaviour
     {
         FocusOnInputField();
     }
-    public void ReadStringInput(string s)
+    private void Update()
     {
-        input = s;
+        if(inputField.isFocused && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        {
+            SubmitInput();
+        }
+    }
+    private void SubmitInput()
+    {
+        string input = inputField.text;
+
+        if (string.IsNullOrWhiteSpace(input)) { return; }
 
         wordManager.CompareWords(input);
-
         inputField.text = "";
-
         FocusOnInputField();
     }
     public void FocusOnInputField()
