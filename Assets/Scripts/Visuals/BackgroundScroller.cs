@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
@@ -59,7 +58,6 @@ public class BackgroundScroller : MonoBehaviour
         }
 
         progress = 0f;
-        mainCamera.transform.position = new Vector3(0, 0, -10);
 
         yield return null;
     }

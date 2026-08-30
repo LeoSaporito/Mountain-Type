@@ -24,12 +24,16 @@ public class WordGroup : MonoBehaviour
     [HideInInspector] public WordBank _wordBank;
     [HideInInspector] public WordManager _wordManager;
 
+    private bool gameOver;
+
     private void Start()
     {
         InitializeScripts();
 
         NewWord();
         DisplayWord();
+
+        gameOver = false;
     }
     private void InitializeScripts()
     {
@@ -57,8 +61,9 @@ public class WordGroup : MonoBehaviour
     }
     private void Update()
     {
-        if (progressImage.fillAmount <= 0)
+        if (progressImage.fillAmount <= 0 && !gameOver)
         {
+            gameOver = true;
             _wordManager.GameOver(this);
         }
     }

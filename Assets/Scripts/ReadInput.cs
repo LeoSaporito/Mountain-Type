@@ -5,18 +5,13 @@ using TMPro;
 public class ReadInput : MonoBehaviour
 {
     private string input;
+
     public TMP_InputField inputField;
     public WordManager wordManager;
+
     private void Start()
     {
-        inputField.Select();
-    }
-    private void Update()
-    {
-        if (EventSystem.current.currentSelectedGameObject != inputField)
-        {
-            FocusOnInputField();
-        }
+        FocusOnInputField();
     }
     public void ReadStringInput(string s)
     {
@@ -24,14 +19,14 @@ public class ReadInput : MonoBehaviour
 
         wordManager.CompareWords(input);
 
-        inputField.text = null;
+        inputField.text = "";
 
         FocusOnInputField();
     }
     public void FocusOnInputField()
     {
+        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
         inputField.ActivateInputField();
-        inputField.Select();
     }
     public void TurnOffInteraction()
     {
