@@ -7,7 +7,7 @@ public class WordBank : MonoBehaviour
 {
     public List<string> wordVault = new List<string>();
 
-    private void Start()
+    private void Awake()
     {
         AddToWordVault(EasyWords());
     }
@@ -17,10 +17,10 @@ public class WordBank : MonoBehaviour
         int randomNumber = Random.Range(0, wordVault.Count);
 
         //get the word at that index
-        string word = wordVault[randomNumber - 1];
+        string word = wordVault[randomNumber];
 
         //remove the word from the vault so it can't be used again
-        wordVault.RemoveAt(randomNumber - 1);
+        wordVault.RemoveAt(randomNumber);
 
         //return the word
         return word;

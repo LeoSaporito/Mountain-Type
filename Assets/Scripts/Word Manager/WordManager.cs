@@ -18,7 +18,6 @@ public class WordManager : MonoBehaviour
             if (wordTyped.ToLower() == wordGroup.word.ToLower())
             {
                 // SUCCEEDED
-                print(wordTyped + " is correct");
                 rightOrWrong.Correct(wordTyped, wordGroup);
 
                 _levelManager.AddWord(wordTyped, "green");
@@ -44,7 +43,7 @@ public class WordManager : MonoBehaviour
         failedWordGroup.durationImage.color = Color.darkRed;
         failedWordGroup.wordText.color = Color.red;
 
-        foreach (WordGroup wordGroup in wordGroups)
+        foreach (WordGroup wordGroup in wordGroups) 
         {
             wordGroup.startTimer = false;
         }

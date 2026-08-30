@@ -4,8 +4,6 @@ using TMPro;
 
 public class ReadInput : MonoBehaviour
 {
-    private string input;
-
     public TMP_InputField inputField;
     public WordManager wordManager;
 
@@ -23,6 +21,7 @@ public class ReadInput : MonoBehaviour
     private void SubmitInput()
     {
         string input = inputField.text;
+        print(input);
 
         if (string.IsNullOrWhiteSpace(input)) { return; }
 
