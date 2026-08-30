@@ -6,7 +6,7 @@ public class ReadInput : MonoBehaviour
 {
     private string input;
     public TMP_InputField inputField;
-    public WordsManager wordsManager;
+    public WordManager wordManager;
     private void Start()
     {
         inputField.Select();
@@ -22,7 +22,7 @@ public class ReadInput : MonoBehaviour
     {
         input = s;
 
-        wordsManager.CompareWords(input);
+        wordManager.CompareWords(input);
 
         inputField.text = null;
 
