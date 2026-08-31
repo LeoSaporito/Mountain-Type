@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -11,6 +12,18 @@ public class LevelManager : MonoBehaviour
 
     public ScorePanelUI _scorePanelUI;
 
+    [SerializeField] public GameObject[] wordGroups;
+
+    [SerializeField] public int activeGroupIndex = 1;
+    [SerializeField] public int increaseDifficulty = 10;
+
+    private void Start()
+    {
+        for(int i = 1; i < wordGroups.Length; i++)
+        {
+            wordGroups[i].SetActive(false);
+        }
+    }
     public void AddWord(string word, string color)
     {
         _scorePanelUI.AddWord(word, color);
@@ -19,6 +32,22 @@ public class LevelManager : MonoBehaviour
     {
         score = correct - incorrect;
 
+        if(attempts > increaseDifficulty)
+        {
+            if(activeGroupIndex >= wordGroups.Length)
+            {
+                return;
+            }
+
+            wordGroups[activeGroupIndex].SetActive(true);
+            wordGroups[activeGroupIndex].GetComponent<WordGroup>().startTimer = true;
+        
+            activeGroupIndex++;
+            increaseDifficulty += 10;
+        }
+    }
+    public void FinalScoreCheck()
+    {
         if (score > highestScore)
         {
             highestScore = score;

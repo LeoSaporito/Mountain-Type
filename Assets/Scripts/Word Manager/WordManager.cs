@@ -22,6 +22,7 @@ public class WordManager : MonoBehaviour
 
                 _levelManager.AddWord(wordTyped, "green");
                 _levelManager.correct++;
+                _levelManager.attempts++;
                 return;
             }
         }
@@ -35,6 +36,7 @@ public class WordManager : MonoBehaviour
             }
 
             _levelManager.AddWord(wordTyped, "red");
+            _levelManager.attempts++;
             _levelManager.incorrect++;
         }
     }
@@ -47,7 +49,7 @@ public class WordManager : MonoBehaviour
         {
             wordGroup.startTimer = false;
         }
-
+        _levelManager.FinalScoreCheck();
         gameManager.GameOver();
     }
 }

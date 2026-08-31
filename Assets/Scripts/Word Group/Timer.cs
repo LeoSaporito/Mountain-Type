@@ -9,11 +9,9 @@ public class Timer : MonoBehaviour
     {
         if (!wordGroup.startTimer)
         {
-            wordGroup.progressImage.fillAmount = wordGroup.progressImage.fillAmount;
+            return;
         }
-        else
-        {
-            wordGroup.progressImage.fillAmount -= Time.deltaTime * wordGroup.timerSpeed;    
-        }
+        
+        wordGroup.progressImage.fillAmount -= Time.deltaTime * wordGroup.timerSpeed;    
     }
 }

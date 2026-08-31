@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class ScorePanelUI : MonoBehaviour
 {
     [SerializeField] private LevelManager _levelManager;
-    //[SerializeField] private TextMeshProUGUI wordsTyped;
+    [SerializeField] private GameObject scorePanel;
     [SerializeField] private GameObject word;
     [SerializeField] private GameObject wordGroup;
     [SerializeField] private TextMeshProUGUI correctText;
@@ -17,22 +17,19 @@ public class ScorePanelUI : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
+        scorePanel.SetActive(false);
         hasTriggered = false;
     }
     public void DisplayScorePanel()
     {
-        if (!hasTriggered)
-        {
-            gameObject.SetActive(true);
+        scorePanel.SetActive(true);
 
-            correctText.text = "Correctly Spelled: " + _levelManager.correct;
-            incorrectText.text = "Incorrectly Spelled: " + _levelManager.incorrect;
-            scoreText.text = _levelManager.correct + " - " + _levelManager.incorrect + " = " + _levelManager.score;
-            highScoreText.text = "Highest Score: " + _levelManager.highestScore;
+        correctText.text = "Correctly Spelled: " + _levelManager.correct;
+        incorrectText.text = "Incorrectly Spelled: " + _levelManager.incorrect;
+        scoreText.text = "Final Score: " + _levelManager.correct + " - " + _levelManager.incorrect + " = " + _levelManager.score;
+        highScoreText.text = "Highest Score: " + _levelManager.highestScore;
             
-            hasTriggered = true;
-        }
+        hasTriggered = true;        
     }
     public void AddWord(string wordTyped, string color)
     {

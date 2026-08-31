@@ -7,13 +7,15 @@ public class ReadInput : MonoBehaviour
     public TMP_InputField inputField;
     public WordManager wordManager;
 
+    public GameObject tutorialText;
+
     private void Start()
     {
         FocusOnInputField();
     }
     private void Update()
     {
-        if(inputField.isFocused && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             SubmitInput();
         }
@@ -24,6 +26,8 @@ public class ReadInput : MonoBehaviour
         print(input);
 
         if (string.IsNullOrWhiteSpace(input)) { return; }
+
+        if(tutorialText.activeSelf) { tutorialText.SetActive(false); }
 
         wordManager.CompareWords(input);
         inputField.text = "";
