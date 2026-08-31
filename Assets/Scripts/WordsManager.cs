@@ -12,7 +12,7 @@ public class WordsManager : MonoBehaviour
     //[SerializeField] public string word;
     [SerializeField] public GameObject[] wordsObj;
 
-    public void CompareWords(string wordTyped)
+/*    public void CompareWords(string wordTyped)
     {
         for (int i = 0; i < wordsObj.Length; i++)
         {
@@ -33,7 +33,7 @@ public class WordsManager : MonoBehaviour
         
         _levelManager.attempts++;
 
-    /*        if (wordTyped.ToLower() != word)
+    *//*        if (wordTyped.ToLower() != word)
         {
             //FAILED
             _levelManager.AddWord(wordTyped, "red");
@@ -45,7 +45,7 @@ public class WordsManager : MonoBehaviour
             _levelManager.AddWord(wordTyped, "green");
             StartCoroutine(CorrectUpdate());
         }
-*/
+*//*
     }
     public void Correct(string wordTyped, GameObject wordObj)
     {
@@ -68,5 +68,5 @@ public class WordsManager : MonoBehaviour
         _hands.StumbleHands();
 
         _levelManager.incorrect++;
-    }
+    }*/
 }

@@ -11,22 +11,22 @@ public class Word : MonoBehaviour
     public WordsManager wordsManager;
     [SerializeField] private BoxCollider2D _boxCollider;
 
-    private void Start()
+/*    private void Start()
     {
         GetNewWord();
-    }
-    private int RandomNumberGenerator()
+    }*/
+/*    private int RandomNumberGenerator()
     {
         int number = Random.Range(0, wordBank.wordVault.Count);
 
         return number;
-    }
-    public void GetNewWord()
+    }*/
+/*    public void GetNewWord()
     {
         word = wordBank.wordVault[RandomNumberGenerator()];
         wordText.text = word;
         //wordsManager.word = word;
-    }
+    }*/
     public void ChangeTextColor(string answer)
     {
         if (answer == "green")

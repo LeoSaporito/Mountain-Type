@@ -4,34 +4,39 @@ using TMPro;
 
 public class ReadInput : MonoBehaviour
 {
-    private string input;
     public TMP_InputField inputField;
-    public WordsManager wordsManager;
+    public WordManager wordManager;
+
+    public GameObject tutorialText;
+
     private void Start()
     {
-        inputField.Select();
+        FocusOnInputField();
     }
     private void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject != inputField)
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            FocusOnInputField();
+            SubmitInput();
         }
     }
-    public void ReadStringInput(string s)
+    private void SubmitInput()
     {
-        input = s;
+        string input = inputField.text;
+        print(input);
 
-        wordsManager.CompareWords(input);
+        if (string.IsNullOrWhiteSpace(input)) { return; }
 
-        inputField.text = null;
+        if(tutorialText.activeSelf) { tutorialText.SetActive(false); }
 
+        wordManager.CompareWords(input);
+        inputField.text = "";
         FocusOnInputField();
     }
     public void FocusOnInputField()
     {
+        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
         inputField.ActivateInputField();
-        inputField.Select();
     }
     public void TurnOffInteraction()
     {

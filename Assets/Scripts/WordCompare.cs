@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class WordCompare : MonoBehaviour
 {
-    [SerializeField] private Word _word;
+/*    [SerializeField] private Word _word;
     [SerializeField] private Timer _timer;
 
     [SerializeField] public float delay;
@@ -14,7 +14,7 @@ public class WordCompare : MonoBehaviour
         _timer.StopTimer();
         yield return new WaitForSeconds(delay);
 
-        NewWord();
+        //NewWord();
 
         yield return null;
     }
@@ -29,8 +29,8 @@ public class WordCompare : MonoBehaviour
         _timer.ChangeTimerColor("white");
 
         yield return null;
-    }
-    private void NewWord()
+    }*/
+/*    private void NewWord()
     {
         _word.GetNewWord();
         _word.MoveWord();
@@ -38,5 +38,5 @@ public class WordCompare : MonoBehaviour
         _timer.ChangeTimerColor("white");
         _timer.ResetTimer();
         _timer.StartTimer();
-    }
+    }*/
 }
